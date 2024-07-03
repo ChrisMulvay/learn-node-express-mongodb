@@ -1,7 +1,7 @@
 # Node.js Express & MongoDB: CRUD Rest APIs
 
 | Methods  | | URLS                     | | Actions                                      |  
-| :--------| | :------------------------| | :--------------------------------------------|
+|--------- | |------------------------- | |----------------------------------------------|
 | GET      | | api/tutorials            | | get all tutorials                            |      
 | GET      | | api/tutorials/:id        | | get Tutorial by id                           |          
 | POST     | | api/tutorials            | | add new Tutorial                             |      
