@@ -48,10 +48,17 @@ exports.findAll = (req, res) => {
 };
 // Here we use 'req.query.title' to get query string from the Request and consider it as a condition for 'findAll()' method.
 
-// Find a single Tutorial with an id
+// Find a single Tutorial with an id:
 exports.findOne = (req, res) => {
+    const id = req.params.id;
 
+    Tutorial.findById(id)
+      .then(data => {
+        if(!data)
+            res.status(404).send({ message: "Not found Tutorial with id " + id });
+      });
 };
+
 
 // Update a Tutorial by the id in the request
 exports.update = (req, res) => {
