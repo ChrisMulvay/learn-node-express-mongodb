@@ -126,5 +126,26 @@ exports.deleteAll = (req, res) => {
 
 // Find all published Tutorials
 exports.findAllPublished = (req, res) => {
-
+  Tutorial.find({ published: true })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving tutorials."
+      });
+    });
 };
+
+/**
+ * This controller can be modified a little to return pagination response:
+ *  {
+ *    "totalItems": 8,
+ *    "tutorials": [...],
+ *    "totalPages": 3,
+ *    "currentPage": 1,
+ * }
+ * 
+ * See:  https://www.bezkoder.com/node-js-mongodb-pagination/
+ */
